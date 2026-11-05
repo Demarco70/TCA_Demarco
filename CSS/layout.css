@@ -1,0 +1,66 @@
+/* Define o layout da página, a estrutura principal.
+Também define header, menu (nav), main, sections e footer.
+Este arquivo normalmente é único/específico de um projeto
+e não é reutilizado (exceto em sites com estrutura semelhante). */
+
+header {
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.topo {
+    display: flex;
+    justify-content: center;
+}
+
+.topo img {
+    height: 300px;
+    padding: 15px;
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--background-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+main {
+    margin: 0px;
+}
+
+section {
+    padding: 10px;
+    min-height: auto;
+    text-align: center;
+}
+
+#inicio      { background-color: var(--section-odd-color); }
+#personagens { background-color: var(--section-odd-color); }
+#assassinato    { background-color: var(--section-odd-color); }
+#provas     { background-color: var(--section-odd-color); }
+#desfecho        { background-color: var(--section-odd-color); }
+
+footer {
+    background-color: var(--section-odd-color);
+    text-align: center;
+    font-size: 12px;
+    margin: 0px;
+}
+
+footer p {
+    margin: 0px;
+    padding-top: 20px;
+}

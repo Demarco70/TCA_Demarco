@@ -1,0 +1,12 @@
+/* CSS principal - importa/junta os arquivos CSS */
+
+/* Importação de fontes e arquivos CSS usados na página.
+A ordem em que são chamados é importante */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('modern-normalize.css');
+@import url('variables.css');
+@import url('base.css');
+@import url('layout.css');
+@import url('componentes.css');
+
