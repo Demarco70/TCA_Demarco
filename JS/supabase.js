@@ -1,6 +1,6 @@
 const SUPABASE_URL = "https://qxsvzbscftgviujaanbn.supabase.co"
 const SUPABASE_ANON_KEY = "sb_publishable_hVRsxTILGjHe8-RLdm7lZA_YQ4PEzwi"
 
-const supabase = window.supabase.createCliente(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 console.log("Cliente Supabase inicializado!", supabaseClient);

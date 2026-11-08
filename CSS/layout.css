@@ -5,62 +5,61 @@ e não é reutilizado (exceto em sites com estrutura semelhante). */
 
 header {
     background-color: var(--background-color);
-    text-align: center;
 }
 
 .topo {
     display: flex;
     justify-content: center;
+    padding: 1rem;
 }
 
 .topo img {
-    height: 300px;
-    padding: 15px;
+    max-width: 320px;
 }
 
+/* Menu de seções (somente na página inicial) */
 .menu {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background-color: var(--background-color);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 10px 0;
-    border-top: 1px solid var(--border-color);
+    gap: 1.25rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-secondary);
 }
 
 .menu a {
+    color: var(--color-white);
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
+    font-weight: 600;
 }
 
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
 main {
-    margin: 0px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 2rem;
 }
 
 section {
-    padding: 10px;
-    min-height: auto;
-    text-align: center;
+    scroll-margin-top: 4rem; /* evita que o menu fixo cubra o título */
 }
 
-#inicio      { background-color: var(--section-odd-color); }
-#personagens { background-color: var(--section-odd-color); }
-#assassinato    { background-color: var(--section-odd-color); }
-#provas     { background-color: var(--section-odd-color); }
-#desfecho        { background-color: var(--section-odd-color); }
-
+/* Rodapé */
 footer {
-    background-color: var(--section-odd-color);
+    padding: 1rem;
     text-align: center;
-    font-size: 12px;
-    margin: 0px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 footer p {
-    margin: 0px;
-    padding-top: 20px;
+    margin: 0;
+    text-align: center;
+    text-indent: 0;
 }

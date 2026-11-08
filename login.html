@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>ProHabeas - Entrar</title>
+</head>
+
+<body>
+
+<header>
+    <div class="topo">
+        <img alt="Logo ProHabeas" src="Img/Logo Corporativo ProHabeas em Azul Gradiente.png">
+    </div>
+</header>
+
+<main>
+    <section>
+        <h1>Entrar</h1>
+
+        <form class="formulario" id="form-login">
+            <label>
+                E-mail
+                <input type="email" id="email" autocomplete="email" required>
+            </label>
+
+            <label>
+                Senha
+                <input type="password" id="senha" autocomplete="current-password" required>
+            </label>
+
+            <button class="botao" type="submit">Entrar</button>
+            <p class="mensagem" id="mensagem" role="status"></p>
+        </form>
+
+        <p class="texto-centro">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+    </section>
+</main>
+
+<footer>
+    <p>Desenvolvido por: Gabriel Demarco</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="JS/supabase.js"></script>
+<script src="JS/login.js"></script>
+</body>
+</html>
