@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="CSS/main.css">
     <title>ProHabeas - Início</title>
 </head>
@@ -17,21 +21,35 @@
 </header>
 
 <nav class="menu">
-    <a href="#sobre">Sobre nós</a>
-    <a href="#proposta">Nossa proposta</a>
-    <a href="#diferencial">Nosso diferencial</a>
-    <a href="#feedback">Feedbacks</a>
-    <a href="login.html">Entrar</a>
-    <a href="cadastro.html">Cadastre-se</a>
+    <div class="menu_section">
+        <a href="#sobre">Sobre nós</a>
+        <a href="#proposta">Nossa proposta</a>
+        <a href="#diferencial">Nosso diferencial</a>
+        <a href="#feedback">Feedbacks</a>
+    </div>
+
+    <div class="menu_fora">
+        <a href="login.html" class="entrar">Entrar</a>
+        <a href="cadastro.html" class="cadastro">Cadastre-se</a>
+    </div>
 </nav>
 
 <main>
+<div id="fundo">
+
 <section id="sobre">
     <h1>Sobre nós</h1>
     <p>O Direito exige atenção, responsabilidade e organização em cada detalhe. Por trás de cada processo, existem informações importantes, documentos que precisam ser acompanhados, prazos que não podem ser esquecidos e tarefas que exigem dedicação.</p>
     <p>Foi pensando nessa realidade que surgiu o ProHabeas: uma plataforma desenvolvida para tornar a gestão de escritórios de advocacia mais simples, organizada e eficiente.</p>
     <p>Nosso propósito é reunir, em um único ambiente, ferramentas que auxiliem no gerenciamento de clientes, processos, documentos, compromissos e atividades jurídicas. Acreditamos que a tecnologia pode ser uma grande aliada dos profissionais do Direito, oferecendo recursos que facilitam o cotidiano e tornam a administração do escritório mais prática.</p>
     <p>Mais do que organizar informações, queremos contribuir para uma rotina em que cada detalhe tenha seu espaço, cada responsabilidade possa ser acompanhada e cada demanda receba a devida atenção.</p>
+
+    <div class="fotos_main">
+        <img alt="imagem 1" src="Img/imagem_1.jpeg">
+        <img alt="imagem 2" src="Img/imagem_2.jpeg">
+        <img alt="imagem 3" src="Img/imagem_3.jpg">
+    </div>
+
 </section>
 
 <section id="proposta">
@@ -40,6 +58,13 @@
     <p>O ProHabeas propõe centralizar essas atividades em uma plataforma intuitiva, permitindo que os profissionais tenham uma visão mais ampla e organizada de suas demandas.</p>
     <p>Por meio de funcionalidades integradas, buscamos reduzir a dispersão de informações, facilitar o acompanhamento das atividades e proporcionar maior controle sobre as responsabilidades do escritório.</p>
     <p>Nossa proposta é transformar a organização em uma aliada do trabalho jurídico, oferecendo praticidade para as tarefas administrativas e contribuindo para que os profissionais possam direcionar sua atenção ao que realmente importa: o exercício da advocacia e o atendimento de seus clientes.</p>
+
+    <div class="fotos_main">
+        <img alt="imagem 4" src="Img/imagem_4.jpeg">
+        <img alt="imagem 5" src="Img/imagem_5.jpeg">
+        <img alt="imagem 6" src="Img/imagem_6.jpeg">
+    </div>
+
 </section>
 
 <section id="diferencial">
@@ -50,16 +75,53 @@
     <p>Além disso, a organização de tarefas e o acompanhamento de pendências permitem identificar o que precisa de atenção, contribuindo para uma rotina mais planejada.</p>
     <p>Menos informações dispersas. Mais organização, controle e eficiência.</p>
     <p>Essa é a essência do ProHabeas: utilizar a tecnologia para simplificar a gestão e tornar o cotidiano jurídico mais organizado.</p>
+
+    <div class="fotos_main">
+        <img alt="imagem 7" src="Img/imagem_7.jpeg">
+        <img alt="imagem 8" src="Img/imagem_8.jpeg">
+        <img alt="imagem 9" src="Img/imagem_9.jpeg">
+    </div>
+
 </section>
 
 <section id="feedback">
     <h1>Feedbacks</h1>
     <p>Conheça as experiências de quem utiliza o ProHabeas e descubra como a tecnologia pode contribuir para uma rotina jurídica mais organizada, prática e eficiente. Cada opinião representa uma oportunidade de aprimorar nossa plataforma e oferecer uma experiência cada vez melhor.</p>
+
+    <div id="opinioes">
+
+    <div class="comentario">
+        <p>"O ProHabeas apresenta uma proposta muito interessante. A possibilidade de reunir informações de clientes, processos e prazos em um único ambiente torna a rotina muito mais organizada. É uma ferramenta que facilita bastante o acompanhamento das atividades."</p>
+        <p class="dono">Marina Oliveira</p>
+        <p class="profissao">Profissional da área jurídica</p>
+    </div>
+
+    <div class="comentario">
+        <p>"Gostei especialmente da organização dos checklists e do controle de documentos. São recursos que ajudam a visualizar o que já foi realizado e o que ainda precisa ser providenciado, evitando que informações importantes fiquem perdidas."</p>
+        <p class="dono">Rafael Martins</p>
+        <p class="profissao">Advogado</p>
+    </div>
+
+    <div class="comentario">
+        <p>"A interface é intuitiva e apresenta as informações de maneira clara. Acredito que sistemas como esse são importantes para modernizar a administração dos escritórios e tornar as atividades cotidianas menos complicadas."</p>
+        <p class="dono">Camila Ferreira</p>
+        <p class="profissao">Estudante de Direito</p>
+    </div>
+
+    <div class="comentario">
+        <p>"Uma plataforma que demonstra preocupação com as necessidades reais da gestão jurídica. A integração entre tarefas, compromissos e processos é um ponto positivo, pois permite visualizar melhor as responsabilidades do escritório."</p>
+        <p class="dono">Lucas Almeida</p>
+        <p class="profissao">Profissional da área administrativa</p>
+    </div>
+
+    </div>
 </section>
+
+</div>
 </main>
 
 <footer>
-    <p>Desenvolvido por: Gabriel Demarco</p>
+    <p>Desenvolvido por: Gabriel da Silveira Garcia Demarco</p>
 </footer>
 
 </body>

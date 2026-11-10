@@ -9,7 +9,6 @@ mas os valores são específicos para este projeto.
 :root {
     --background-color: #e8f2f1;
 
-    /* Cores extraídas da logo ProHabeas */
     --color-primary: #0b3a63;
     --color-secondary: #3a96c0;
     --color-white: #ffffff;
@@ -17,7 +16,8 @@ mas os valores são específicos para este projeto.
     --color-success: #1b6e3c;
 
     --text-color: black;
-    --font-base: Inter, sans-serif;
+    --font-base: 'Source Sans 3', sans-serif;
+    --font-title: 'Playfair Display', serif;
     --text-indent: 6%;
     --line-height-p: 1.7;
 }

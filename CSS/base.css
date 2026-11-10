@@ -7,19 +7,23 @@ body {
     color: var(--text-color);
 }
 
+h1 {
+    font-family: var(--font-tittle);
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-primary);
+}
+
 p {
+    font-size: 17px;
     text-align: justify;
     text-indent: var(--text-indent);
     line-height: var(--line-height-p);
 }
 
-section p:first-of-type::first-letter {
-    font-size: 150%;
-}
-
-h1 {
-    text-align: center;
-    color: var(--color-primary);
+p::first-letter {
+    font-size: 110%;
 }
 
 a {
