@@ -21,5 +21,5 @@ formLogin.addEventListener("submit", async (evento) => {
         return;
     }
 
-    window.location.href = "inicio.html";
+    window.location.href = "pagina.html";
 });
