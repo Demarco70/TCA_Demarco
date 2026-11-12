@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>Recuperar senha</title>
+</head>
+<body>
+    
+<header>
+    <div class="topo">
+        <img alt="Logo ProHabeas" src="Img/Logo Corporativo ProHabeas em Azul Gradiente.png">
+    </div>
+</header>
+
+<main>
+
+<form id="form-recuperar">
+  <input type="email" id="email" placeholder="Seu e-mail" required />
+  <button type="submit">Recuperar senha</button>
+  <p id="msg"></p>
+</form>
+
+<p><a href="login.html">Voltar ao login</a></p>
+
+</main>    
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="JS/supabase.js"></script>
+<script src="JS/esqueci_senha.js"></script>
+</body>
+</html>
