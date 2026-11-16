@@ -1,6 +1,6 @@
-const URL_NOVA_SENHA = new URL('nova_senha.html', window.location.href).href
+const URL_NOVA_SENHA = new URL('redefinir_senha.html', window.location.href).href
  
-const formRecuperar = document.getElementById('form-recuperar')
+const formRecuperar = document.getElementById('form_recuperar')
 const campoEmail = document.getElementById('email')
 const msgRecuperar = document.getElementById('msg')
  
@@ -26,6 +26,8 @@ formRecuperar.addEventListener('submit', async (e) => {
  
   const resultado = await recuperarSenha(campoEmail.value.trim())
   msgRecuperar.textContent = resultado.mensagem
+  msgRecuperar.classList.remove('erro', 'sucesso')
+  msgRecuperar.classList.add(resultado.ok ? 'sucesso' : 'erro')
  
   botao.disabled = false
 })

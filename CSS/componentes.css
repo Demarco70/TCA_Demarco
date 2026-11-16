@@ -3,7 +3,7 @@
  * Exemplos: galeria de imagens, bandeira, famosos, banner animado, mosaico, formulário.
  */
 
- .formulario {
+.formulario {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -76,4 +76,3 @@
     text-align: center;
     text-indent: 0;
 }
-

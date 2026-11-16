@@ -6,7 +6,7 @@ const avisoLink = document.getElementById('aviso-link')
 supabase.auth.onAuthStateChange((event) => {
   if (event === 'PASSWORD_RECOVERY') {
     avisoLink.style.display = 'none'
-    formNovaSenha.style.display = 'block'
+    formNovaSenha.style.display = ''
   }
 })
  
@@ -35,6 +35,8 @@ formNovaSenha.addEventListener('submit', async (e) => {
  
   if (senha !== confirmar) {
     msgSenha.textContent = 'As senhas não coincidem.'
+    msgSenha.classList.remove('sucesso')
+    msgSenha.classList.add('erro')
     return
   }
  
@@ -43,6 +45,8 @@ formNovaSenha.addEventListener('submit', async (e) => {
  
   const resultado = await atualizarSenha(senha)
   msgSenha.textContent = resultado.mensagem
+  msgSenha.classList.remove('erro', 'sucesso')
+  msgSenha.classList.add(resultado.ok ? 'sucesso' : 'erro')
  
   if (resultado.ok) {
     await supabase.auth.signOut()

@@ -147,7 +147,7 @@ main {
 }
 
 .comentario .dono { 
-    font-family: var(--font-tittle);
+    font-family: var(--font-title);
     text-align: end;
     font-weight: bold;
     color: #1a202c;
