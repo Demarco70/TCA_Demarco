@@ -1,6 +1,6 @@
 const URL_NOVA_SENHA = new URL('redefinir_senha.html', window.location.href).href
  
-const formRecuperar = document.getElementById('form_recuperar')
+const formRecuperar = document.getElementById('form-recuperar')
 const campoEmail = document.getElementById('email')
 const msgRecuperar = document.getElementById('msg')
  
