@@ -3,7 +3,7 @@ const formNovaSenha = document.getElementById('form-nova-senha')
 const msgSenha = document.getElementById('msg-senha')
 const avisoLink = document.getElementById('aviso-link')
  
-supabase.auth.onAuthStateChange((event) => {
+supabaseClient.auth.onAuthStateChange((event) => {
   if (event === 'PASSWORD_RECOVERY') {
     avisoLink.style.display = 'none'
     formNovaSenha.style.display = ''
@@ -17,7 +17,7 @@ if (params.get('error')) {
 }
  
 async function atualizarSenha(novaSenha) {
-  const { error } = await supabase.auth.updateUser({ password: novaSenha })
+  const { error } = await supabaseClient.auth.updateUser({ password: novaSenha })
  
   if (error) {
     console.error('Erro ao atualizar senha:', error.message)
@@ -49,7 +49,7 @@ formNovaSenha.addEventListener('submit', async (e) => {
   msgSenha.classList.add(resultado.ok ? 'sucesso' : 'erro')
  
   if (resultado.ok) {
-    await supabase.auth.signOut()
+    await supabaseClient.auth.signOut()
     setTimeout(() => (window.location.href = URL_LOGIN), 2000)
   } else {
     botao.disabled = false

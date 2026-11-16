@@ -5,7 +5,7 @@ const campoEmail = document.getElementById('email')
 const msgRecuperar = document.getElementById('msg')
  
 async function recuperarSenha(email) {
-  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
     redirectTo: URL_NOVA_SENHA,
   })
  
