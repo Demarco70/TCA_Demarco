@@ -162,6 +162,38 @@ main {
     margin-top: 0;
 }
 
+.menu-painel {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background: #0b3a63;
+}
+ 
+.menu-painel a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+ 
+.menu-painel a:hover {
+  text-decoration: underline;
+}
+ 
+.menu-painel button {
+  padding: 4px 14px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
 footer {
     padding: 1rem;
     text-align: center;

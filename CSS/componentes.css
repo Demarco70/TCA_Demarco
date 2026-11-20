@@ -76,3 +76,157 @@
     text-align: center;
     text-indent: 0;
 }
+
+.painel {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.bloco {
+  margin-top: 28px;
+  scroll-margin-top: 64px; /* não esconde o título atrás do menu fixo */
+}
+
+.painel h1,
+.painel h2 {
+  color: #0b3a63;
+}
+
+.painel h3 {
+  margin: 20px 0 8px;
+  color: #0b3a63;
+}
+
+.sub {
+  margin: 2px 0;
+  color: #555;
+  font-size: 0.92rem;
+}
+
+.contador {
+  display: inline-block;
+  min-width: 22px;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 12px;
+  background: #dbe7f1;
+  color: #0b3a63;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.contador:empty {
+  display: none;
+}
+
+/* Cartões de resumo */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  border-left: 5px solid #3a9bc4;
+}
+
+.card-alerta { border-left-color: #c0392b; }
+.card-aviso  { border-left-color: #e0a100; }
+
+.card-numero {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b3a63;
+}
+
+.card-rotulo {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Listas */
+.lista {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #9fb3c4;
+}
+
+.item.prioridade-alta  { border-left-color: #c0392b; }
+.item.prioridade-media { border-left-color: #e0a100; }
+.item.prioridade-baixa { border-left-color: #3a9bc4; }
+
+.item-topo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.selo {
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: #e6ecf1;
+  color: #0b3a63;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.selo-alta  { background: #f8d7d3; color: #8e2217; }
+.selo-media { background: #fbeec2; color: #7a5a00; }
+.selo-baixa { background: #d6ebf5; color: #1d5f7d; }
+.selo-prazo { background: #0b3a63; color: #fff; }
+
+.atrasado { color: #c0392b; font-weight: 600; }
+
+.vazio {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f2f6f9;
+  color: #555;
+}
+
+.mais {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Barra de progresso dos checklists */
+.barra {
+  height: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #dbe7f1;
+}
+
+.barra-preenchida {
+  height: 100%;
+  background: #3a9bc4;
+}
+
+.barra-preenchida.baixo { background: #c0392b; }
+.barra-preenchida.medio { background: #e0a100; }
+
+@media (max-width: 600px) {
+  .card-numero { font-size: 1.6rem; }
+}

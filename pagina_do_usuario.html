@@ -15,8 +15,77 @@
 </div>
 </header>
     
+<nav class="menu-painel" aria-label="Seções do painel">
+    <a href="#resumo">Resumo</a>
+    <a href="#prazos">Prazos</a>
+    <a href="#agenda">Agenda</a>
+    <a href="#checklists">Checklists</a>
+    <a href="#documentos">Documentos</a>
+    <a href="clientes.html">Clientes</a>
+    <button type="button" id="btn-sair">Sair</button>
+</nav>
+
 <main>
-    <section>
+    <section id="resumo" class="bloco">
+        <h1>Painel</h1>
+        <p id="saudacao" class="sub"></p>
+ 
+        <div class="cards">
+            <div class="card">
+                <span class="card-numero" id="n-clientes">–</span>
+                <span class="card-rotulo">Clientes ativos</span>
+            </div>
+            <div class="card">
+                <span class="card-numero" id="n-processos">–</span>
+                <span class="card-rotulo">Processos em curso</span>
+            </div>
+            <div class="card card-alerta">
+                <span class="card-numero" id="n-atrasadas">–</span>
+                <span class="card-rotulo">Tarefas atrasadas</span>
+            </div>
+            <div class="card card-aviso">
+                <span class="card-numero" id="n-docs">–</span>
+                <span class="card-rotulo">Documentos pendentes</span>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="prazos" class="bloco">
+        <h2>Prazos e tarefas</h2>
+        <p id="erro-prazos" class="erro"></p>
+ 
+        <h3>Atrasadas <span class="contador" id="qtd-atrasadas"></span></h3>
+        <ul class="lista" id="lista-atrasadas"></ul>
+ 
+        <h3>Próximos 7 dias <span class="contador" id="qtd-proximas"></span></h3>
+        <ul class="lista" id="lista-proximas"></ul>
+    </section>
+ 
+    <section id="agenda" class="bloco">
+        <h2>Agenda dos próximos 7 dias</h2>
+        <p id="erro-agenda" class="erro"></p>
+        <ul class="lista" id="lista-agenda"></ul>
+    </section>
+ 
+    <section id="checklists" class="bloco">
+        <h2>Checklists em andamento</h2>
+        <p class="sub">Os mais incompletos aparecem primeiro.</p>
+        <p id="erro-checklists" class="erro"></p>
+        <ul class="lista" id="lista-checklists"></ul>
+    </section>
+ 
+    <section id="documentos" class="bloco">
+        <h2>Documentos</h2>
+        <p id="erro-documentos" class="erro"></p>
+ 
+        <h3>Aguardando recebimento <span class="contador" id="qtd-receber"></span></h3>
+        <ul class="lista" id="lista-receber"></ul>
+ 
+        <h3>Recebidos, aguardando conferência <span class="contador" id="qtd-conferir"></span></h3>
+        <ul class="lista" id="lista-conferir"></ul>
+    </section>
+
+    <section id="clientes" class="bloco">
         <h1>Clientes</h1>
  
         <input type="search" id="busca" placeholder="Buscar por nome, CPF/CNPJ ou e-mail">
@@ -110,6 +179,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="JS/supabase.js"></script>
+<script src="JS/painel.js"></script>
 <script src="JS/cliente.js"></script>
 </body>
 </html>
