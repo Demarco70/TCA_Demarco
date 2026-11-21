@@ -43,6 +43,51 @@ function textoDias(dias) {
   return `em ${dias} dias`
 }
 
+function el(tag, texto, classe) {
+  const e = document.createElement(tag)
+  if (texto !== null && texto !== undefined) e.textContent = texto
+  if (classe) e.className = classe
+  return e
+}
+
+function limpar(id) {
+  const lista = document.getElementById(id)
+  lista.replaceChildren()
+  return lista
+}
+
+function mostrarVazio(lista, texto) {
+  const li = el('li', texto, 'vazio')
+  lista.appendChild(li)
+}
+
+function preencher(lista, itens, criar, textoVazio) {
+  if (!itens.length) return mostrarVazio(lista, textoVazio)
+  itens.slice(0, MAX_ITENS).forEach(i => lista.appendChild(criar(i)))
+  if (itens.length > MAX_ITENS) {
+    lista.appendChild(el('li', `… e mais ${itens.length - MAX_ITENS}`, 'mais'))
+  }
+}
+
+function rotuloProcesso(p) {
+  return p ? [p.codigo, p.titulo].filter(Boolean).join(' · ') : ''
+}
+
+function nomeResponsavel(r) {
+  return r?.usuario?.nome_exibicao ?? ''
+}
+
+const PRIORIDADES = ['alta', 'media', 'baixa']
+
+async function secao(idErro, funcao) {
+  try {
+    await funcao()
+  } catch (error) {
+    console.error(error?.message || error)
+    document.getElementById(idErro).textContent = 'Não foi possível carregar esta seção.'
+  }
+}
+
 /* ---------- Resumo ---------- */
 
 async function carregarResumo() {
