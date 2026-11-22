@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>ProHabeas - Editar cliente</title>
+</head>
+<body>
+
+<site-header></site-header>
+<site-nav></site-nav>
+
+<main>
+    <section class="bloco">
+        <h1>Editar cliente</h1>
+        <p id="msg" class="mensagem" role="status"></p>
+
+        <form class="formulario" id="form-cliente" style="display: none;">
+            <input type="hidden" id="cliente-id">
+            <input type="hidden" id="pessoa-id">
+            <input type="hidden" id="endereco-id">
+
+            <label>Nome
+                <input id="nome" required />
+            </label>
+
+            <label>CPF ou CNPJ
+                <input id="documento" placeholder="Somente números ou com pontuação" />
+            </label>
+
+            <label>E-mail
+                <input type="email" id="email" />
+            </label>
+
+            <label>Telefone
+                <input type="tel" id="telefone" placeholder="(53) 90000-0000" />
+            </label>
+
+            <label>Data de nascimento
+                <input type="date" id="data_nascimento" />
+            </label>
+
+            <label>Status
+                <select id="status">
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </label>
+
+            <h3>Endereço (opcional)</h3>
+
+            <label>CEP
+                <input id="cep" placeholder="00000-000" />
+            </label>
+
+            <label>Rua
+                <input id="rua" />
+            </label>
+
+            <label>Número
+                <input id="numero" />
+            </label>
+
+            <label>Complemento
+                <input id="complemento" />
+            </label>
+
+            <label>Cidade
+                <input id="cidade" />
+            </label>
+
+            <label>Estado (UF)
+                <input id="estado" maxlength="2" placeholder="RS" />
+            </label>
+
+            <button class="botao" type="submit">Salvar alterações</button>
+            <a href="clientes.html">Voltar à lista</a>
+        </form>
+    </section>
+</main>
+
+<site-footer></site-footer>
+
+<script type="module" src="JS/editar.js"></script>
+</body>
+</html>

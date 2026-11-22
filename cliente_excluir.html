@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>ProHabeas - Excluir cliente</title>
+</head>
+<body>
+
+<site-header></site-header>
+<site-nav></site-nav>
+
+<main>
+    <section class="bloco">
+        <h1>Excluir cliente</h1>
+        <p id="msg" class="mensagem" role="status"></p>
+
+        <div id="confirmacao" style="display: none;">
+            <p>Você está prestes a excluir este cliente:</p>
+            <dl id="dados-cliente"></dl>
+            <button class="botao" type="button" id="btn-excluir">Excluir</button>
+        </div>
+
+        <p><a href="clientes.html">Voltar à lista</a></p>
+    </section>
+</main>
+
+<site-footer></site-footer>
+
+<script type="module" src="JS/excluir.js"></script>
+</body>
+</html>

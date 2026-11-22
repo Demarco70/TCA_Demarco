@@ -87,89 +87,8 @@
 
     <section id="clientes" class="bloco">
         <h1>Clientes</h1>
- 
-        <input type="search" id="busca" placeholder="Buscar por nome, CPF/CNPJ ou e-mail">
-        <button class="botao" id="btn-novo" type="button">Novo cliente</button>
-        <p id="msg" class="mensagem" role="status"></p>
- 
-        <form class="formulario" id="form-cliente" style="display: none;">
-            <input type="hidden" id="cliente-id">
-            <input type="hidden" id="pessoa-id">
-            <input type="hidden" id="endereco-id">
- 
-            <h2 id="titulo-form">Novo cliente</h2>
- 
-            <label>Nome
-                <input id="nome" required />
-            </label>
- 
-            <label>CPF ou CNPJ
-                <input id="documento" placeholder="Somente números ou com pontuação" />
-            </label>
- 
-            <label>E-mail
-                <input type="email" id="email" />
-            </label>
- 
-            <label>Telefone
-                <input type="tel" id="telefone" placeholder="(53) 90000-0000" />
-            </label>
- 
-            <label>Data de nascimento
-                <input type="date" id="data_nascimento" />
-            </label>
- 
-            <label>Status
-                <select id="status">
-                    <option value="ativo">Ativo</option>
-                    <option value="inativo">Inativo</option>
-                </select>
-            </label>
- 
-            <h3>Endereço (opcional)</h3>
- 
-            <label>CEP
-                <input id="cep" placeholder="00000-000" />
-            </label>
- 
-            <label>Rua
-                <input id="rua" />
-            </label>
- 
-            <label>Número
-                <input id="numero" />
-            </label>
- 
-            <label>Complemento
-                <input id="complemento" />
-            </label>
- 
-            <label>Cidade
-                <input id="cidade" />
-            </label>
- 
-            <label>Estado (UF)
-                <input id="estado" maxlength="2" placeholder="RS" />
-            </label>
- 
-            <button class="botao" type="submit">Salvar</button>
-            <button type="button" id="btn-cancelar">Cancelar</button>
-        </form>
- 
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>CPF/CNPJ</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Cidade/UF</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="lista-clientes"></tbody>
-        </table>
+        <p><a class="botao" href="clientes.html">Consultar clientes</a>
+           <a class="botao" href="cliente_cadastrar.html">Novo cliente</a></p>
     </section>
 </main>
 
@@ -180,6 +99,5 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="JS/supabase.js"></script>
 <script src="JS/painel.js"></script>
-<script src="JS/cliente.js"></script>
 </body>
 </html>

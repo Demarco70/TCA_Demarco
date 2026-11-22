@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>ProHabeas - Clientes</title>
+</head>
+<body>
+
+<site-header></site-header>
+<site-nav></site-nav>
+
+<main>
+    <section id="clientes" class="bloco">
+        <h1>Clientes</h1>
+
+        <input type="search" id="busca" placeholder="Buscar por nome, CPF/CNPJ ou e-mail">
+        <a class="botao" href="cliente_cadastrar.html">Novo cliente</a>
+        <p id="msg" class="mensagem" role="status"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF/CNPJ</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Cidade/UF</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="lista-clientes"></tbody>
+        </table>
+    </section>
+</main>
+
+<site-footer></site-footer>
+
+<script type="module" src="JS/listar.js"></script>
+</body>
+</html>
