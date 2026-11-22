@@ -181,3 +181,118 @@ async function carregarAgenda() {
 
   preencher(limpar('lista-agenda'), data, itemCompromisso, 'Nenhum compromisso nos próximos 7 dias.')
 }
+/* ---------- Checklists ---------- */
+
+function itemChecklist(c) {
+  const li = el('li', null, 'item')
+  const topo = el('div', null, 'item-topo')
+  topo.appendChild(el('strong', c.nome))
+  topo.appendChild(el('span', `${c.percentual}%`, 'selo'))
+  li.appendChild(topo)
+
+  const processo = rotuloProcesso(c.processo)
+  if (processo) li.appendChild(el('div', processo, 'sub'))
+  li.appendChild(el('div', `${c.feitos} de ${c.total} itens recebidos · ${c.pendentes} pendente${c.pendentes === 1 ? '' : 's'}`, 'sub'))
+
+  const barra = el('div', null, 'barra')
+  const nivel = c.percentual < 40 ? 'baixo' : c.percentual < 80 ? 'medio' : ''
+  const preenchida = el('div', null, `barra-preenchida ${nivel}`.trim())
+  preenchida.style.width = `${c.percentual}%`
+  barra.appendChild(preenchida)
+  li.appendChild(barra)
+  return li
+}
+
+async function carregarChecklists() {
+  const { data, error } = await supabaseClient
+    .from('checklist_processo')
+    .select(`
+      id, nome,
+      processo:processo_id ( codigo, titulo ),
+      itens:item_checklist_processo ( status )
+    `)
+  if (error) throw error
+
+  const resumo = data.map(c => {
+    const aplicaveis = c.itens.filter(i => i.status !== 'nao_aplicavel')
+    const feitos = aplicaveis.filter(i => i.status === 'recebido').length
+    const total = aplicaveis.length
+    return {
+      ...c,
+      feitos,
+      total,
+      pendentes: total - feitos,
+      percentual: total ? Math.round((feitos / total) * 100) : 100,
+    }
+  })
+
+  const emAndamento = resumo
+    .filter(c => c.pendentes > 0)
+    .sort((a, b) => a.percentual - b.percentual)
+
+  preencher(limpar('lista-checklists'), emAndamento, itemChecklist, 'Todos os checklists estão completos.')
+}
+
+/* ---------- Documentos ---------- */
+
+function itemDocumento(d) {
+  const li = el('li', null, 'item')
+  const topo = el('div', null, 'item-topo')
+  topo.appendChild(el('strong', d.titulo))
+  if (d.tipo) topo.appendChild(el('span', d.tipo, 'selo'))
+  li.appendChild(topo)
+
+  const processo = rotuloProcesso(d.processo)
+  if (processo) li.appendChild(el('div', processo, 'sub'))
+  if (d.data_recebimento) li.appendChild(el('div', `Data: ${formatarData(d.data_recebimento)}`, 'sub'))
+  return li
+}
+
+async function carregarDocumentos() {
+  const { data, error } = await supabaseClient
+    .from('documento')
+    .select(`
+      id, titulo, tipo, data_recebimento, status_recebido, status_conferido,
+      processo:processo_id ( codigo, titulo )
+    `)
+    .order('data_recebimento')
+  if (error) throw error
+
+  const aReceber = data.filter(d => !d.status_recebido)
+  const aConferir = data.filter(d => d.status_recebido && !d.status_conferido)
+
+  document.getElementById('n-docs').textContent = aReceber.length + aConferir.length
+  document.getElementById('qtd-receber').textContent = aReceber.length || ''
+  document.getElementById('qtd-conferir').textContent = aConferir.length || ''
+
+  preencher(limpar('lista-receber'), aReceber, itemDocumento, 'Nenhum documento aguardando recebimento.')
+  preencher(limpar('lista-conferir'), aConferir, itemDocumento, 'Nenhum documento aguardando conferência.')
+}
+
+/* ---------- Início ---------- */
+
+document.getElementById('btn-sair').addEventListener('click', async () => {
+  await supabaseClient.auth.signOut()
+  window.location.href = 'login.html'
+})
+
+async function iniciar() {
+  const { data: { session } } = await supabaseClient.auth.getSession()
+  if (!session) {
+    window.location.href = 'login.html'
+    return
+  }
+
+  document.getElementById('saudacao').textContent =
+    `Conectado como ${session.user.email} · ${formatarData(HOJE)}`
+
+  await Promise.all([
+    secao('erro-prazos', carregarPrazos),
+    secao('erro-agenda', carregarAgenda),
+    secao('erro-checklists', carregarChecklists),
+    secao('erro-documentos', carregarDocumentos),
+    carregarResumo().catch(error => console.error(error?.message || error)),
+  ])
+}
+
+iniciar()
