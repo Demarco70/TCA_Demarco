@@ -1,13 +1,18 @@
+// Funções auxiliares, validações e manipulação de formulários
+
 import { camposEndereco, primeiroEndereco } from './clientes.js'
 
+// Recebe o id de um campo HTML e devolve o conteúdo
 export function valor(id) {
   return document.getElementById(id).value.trim()
 }
 
+// Remove tudo que não for número
 export function soDigitos(texto) {
   return (texto || '').replace(/\D/g, '')
 }
 
+// Mostras os promps - mensagens - nas páginas
 export function mostrar(texto, ok = true) {
   const msg = document.getElementById('msg')
   msg.textContent = texto
@@ -15,6 +20,7 @@ export function mostrar(texto, ok = true) {
   msg.classList.add(ok ? 'sucesso' : 'erro')
 }
 
+// Mostra se já existe um cliente com o cpf/cnpj
 export function mensagemErro(error, padrao) {
   console.error(error.message)
   if (error.code === '23505') return 'Já existe uma pessoa cadastrada com esse CPF/CNPJ.'
@@ -63,6 +69,7 @@ export function lerFormulario() {
   return { pessoa, status: valor('status'), endereco: temEndereco ? dadosEndereco : null }
 }
 
+// Pega os dados do banco e coloca no HTML
 export function preencherFormulario(c) {
   const p = c.pessoa
   const end = primeiroEndereco(c)

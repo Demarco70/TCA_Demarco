@@ -1,3 +1,5 @@
+//Controla a edição de clientes
+
 import { exigirLogin } from './api.js'
 import { buscarCliente, atualizarCliente } from './clientes.js'
 import { lerFormulario, preencherFormulario, valor, mostrar, mensagemErro } from './utils.js'

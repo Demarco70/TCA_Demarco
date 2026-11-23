@@ -1,3 +1,5 @@
+//Controla a exclusão de clientes
+
 import { exigirLogin } from './api.js'
 import { buscarCliente, excluirCliente, primeiroEndereco } from './clientes.js'
 import { mostrar, mensagemErro } from './utils.js'
@@ -50,7 +52,7 @@ botaoExcluir.addEventListener('click', async () => {
     mostrar('Cliente excluído.')
   } catch (error) {
     botaoExcluir.disabled = false
-    if (error.code === '23503') {
+    if (error.code === '23503') { // Não é possível excluir porque o cliente ainda está ativo
       return mostrar('Este cliente tem processos vinculados e não pode ser excluído. Altere o status para "inativo".', false)
     }
     mostrar(mensagemErro(error, 'Não foi possível excluir o cliente.'), false)

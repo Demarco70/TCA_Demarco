@@ -1,13 +1,16 @@
+// Faz as requisições HTTP e controla a sessão
+
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js'
 
-const REST = `${SUPABASE_URL}/rest/v1`
-const AUTH = `${SUPABASE_URL}/auth/v1`
+const REST = `${SUPABASE_URL}/rest/v1` //acessar e manipular os dados das tabelas
+const AUTH = `${SUPABASE_URL}/auth/v1` //operações relacionadas a autenticação
 
 // A sessão é a mesma gravada pela página de login (localStorage, chave padrão do Supabase).
 function chaveSessao() {
   return `sb-${new URL(SUPABASE_URL).hostname.split('.')[0]}-auth-token`
 }
 
+// Verifica se existe uma sessão válida armazenada no navegador
 export function obterSessao() {
   try {
     const sessao = JSON.parse(localStorage.getItem(chaveSessao()))
@@ -26,6 +29,7 @@ export function exigirLogin() {
   return false
 }
 
+// Encerra a sessão do usuário
 export async function sair() {
   const sessao = obterSessao()
   try {
@@ -41,25 +45,21 @@ export async function sair() {
   }
 }
 
-/**
- * Chamada genérica à API RESTful (PostgREST) do Supabase.
- * @param {string} caminho  ex.: 'cliente?id=eq.1'
- * @param {object} opcoes   { metodo, corpo, retornar }  retornar=true devolve o registro gravado
- */
+// Função para fazer o CRUD funcional, sem que seja necessária a repetição
 export async function requisicao(caminho, { metodo = 'GET', corpo, retornar = false } = {}) {
-  const sessao = obterSessao()
+  const sessao = obterSessao() // Recupera o token de autenticação
   const headers = {
     apikey: SUPABASE_KEY,
     Authorization: `Bearer ${sessao?.access_token ?? SUPABASE_KEY}`
-  }
-  if (corpo !== undefined) headers['Content-Type'] = 'application/json'
-  if (retornar) headers.Prefer = 'return=representation'
+  } // Montados os cabeçalhos
+  if (corpo !== undefined) headers['Content-Type'] = 'application/json' //Vê se precisa enviar dados
+  if (retornar) headers.Prefer = 'return=representation' // Pede para o supabase devolver os registros cadastrados
 
   const resposta = await fetch(`${REST}/${caminho}`, {
     method: metodo,
     headers,
     body: corpo !== undefined ? JSON.stringify(corpo) : undefined
-  })
+  }) // Método HTTP com todas as funções do CRUD
 
   const texto = await resposta.text()
   const dados = texto ? JSON.parse(texto) : null
@@ -69,6 +69,6 @@ export async function requisicao(caminho, { metodo = 'GET', corpo, retornar = fa
     erro.code = dados?.code
     erro.status = resposta.status
     throw erro
-  }
+  } // Trata de possíveis erros
   return dados
 }

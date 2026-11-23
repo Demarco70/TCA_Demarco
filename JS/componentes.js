@@ -1,5 +1,8 @@
+//Cria componentes compartilhados das páginas
+
 import { sair } from './api.js'
 
+// Mantém o cabeçalho padrão a todas as páginas
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -11,6 +14,7 @@ class SiteHeader extends HTMLElement {
   }
 }
 
+// Identifica a página aberta para criar os links necessários
 class SiteNav extends HTMLElement {
   connectedCallback() {
     const paginaAtual = location.pathname.split('/').pop() || 'clientes.html'
@@ -31,7 +35,8 @@ class SiteNav extends HTMLElement {
     this.querySelector('#btn-sair').addEventListener('click', sair)
   }
 }
-
+ 
+// Cria o rodapé compartilhado 
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -41,6 +46,7 @@ class SiteFooter extends HTMLElement {
   }
 }
 
+// Registram os elementos personalizados do navegador
 customElements.define('site-header', SiteHeader)
 customElements.define('site-nav', SiteNav)
 customElements.define('site-footer', SiteFooter)

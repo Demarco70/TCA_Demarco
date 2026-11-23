@@ -1,3 +1,5 @@
+//Controla a listagem e pesquisa de clientes
+
 import { exigirLogin } from './api.js'
 import { listarClientes, primeiroEndereco } from './clientes.js'
 import { mostrar, soDigitos } from './utils.js'
@@ -7,6 +9,7 @@ const lista = document.getElementById('lista-clientes')
 const campoBusca = document.getElementById('busca')
 let clientes = []
 
+// Links de ação
 function link(texto, href) {
   const a = document.createElement('a')
   a.href = href
@@ -14,6 +17,7 @@ function link(texto, href) {
   return a
 }
 
+// Para cada pessoa cria uma linha 
 function criarLinha(c) {
   const p = c.pessoa
   const end = primeiroEndereco(c)
@@ -25,7 +29,8 @@ function criarLinha(c) {
     td.textContent = texto ?? ''   // textContent evita que texto digitado vire código na página
     tr.appendChild(td)
   })
-
+  
+  // Link de edição e exclusão são criados 
   const acoes = document.createElement('td')
   acoes.append(
     link('Editar', `cliente_editar.html?id=${encodeURIComponent(c.id)}`),

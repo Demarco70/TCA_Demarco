@@ -1,5 +1,7 @@
+// Operações do banco de dados relacionadas aos clientes
 import { requisicao } from './api.js'
 
+// Quais informações eu vou retirar do Supabase
 const SELECT = `id,status,data_cadastro,pessoa:pessoa_id(id,nome,email,telefone,cpf,cnpj,data_nascimento,pessoa_endereco(id,tipo,endereco:endereco_id(id,cep,rua,numero,complemento,cidade,estado)))`
 
 export const camposEndereco = ['cep', 'rua', 'numero', 'complemento', 'cidade', 'estado']
@@ -11,11 +13,13 @@ export async function listarClientes() {
   return dados.sort((a, b) => a.pessoa.nome.localeCompare(b.pessoa.nome, 'pt-BR'))
 }
 
+// Consulta um cliente específico 
 export async function buscarCliente(id) {
   const dados = await requisicao(`cliente?select=${encodeURIComponent(SELECT)}&id=eq.${encodeURIComponent(id)}`)
   return dados[0] ?? null
 }
 
+// Recupera o primeiro endereço
 export function primeiroEndereco(c) {
   return c.pessoa.pessoa_endereco?.[0]?.endereco ?? null
 }
@@ -42,6 +46,7 @@ async function salvarEndereco(pessoaId, enderecoId, dados) {
   }
 }
 
+// Inserir clientes novos
 export async function criarCliente(pessoa, status, endereco) {
   const [nova] = await requisicao('pessoa', { metodo: 'POST', corpo: pessoa, retornar: true })
 
@@ -55,6 +60,7 @@ export async function criarCliente(pessoa, status, endereco) {
   if (endereco) await salvarEndereco(nova.id, null, endereco)
 }
 
+// Atualizar clientes
 export async function atualizarCliente(clienteId, pessoaId, enderecoId, pessoa, status, endereco) {
   await requisicao(`pessoa?id=eq.${pessoaId}`, {
     metodo: 'PATCH',
